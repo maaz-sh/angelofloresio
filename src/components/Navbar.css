@@ -1,0 +1,28 @@
+.site-navbar {
+  background-color: rgba(15, 15, 20, 0.85);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-navbar .navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #e0e0e0;
+}
+
+.site-navbar .nav-link {
+  color: #c0c0c0;
+  font-size: 0.95rem;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}

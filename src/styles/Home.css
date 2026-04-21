@@ -1,0 +1,57 @@
+/* Dark clouds hero background using layered radial gradients */
+.home-hero {
+  min-height: calc(100vh - 56px);
+  background-color: #0d0d1a;
+  background-image:
+    /* Moon glow */ radial-gradient(
+      ellipse 40% 25% at 80% 15%,
+      rgba(200, 220, 255, 0.12) 0%,
+      transparent 70%
+    ),
+    /* Large cloud mass centre */ radial-gradient(
+      ellipse 70% 35% at 50% 35%,
+      rgba(30, 30, 50, 0.9) 0%,
+      rgba(20, 20, 40, 0.6) 50%,
+      transparent 80%
+    ),
+    /* Cloud left */ radial-gradient(
+      ellipse 50% 25% at 15% 45%,
+      rgba(25, 25, 45, 0.85) 0%,
+      transparent 70%
+    ),
+    /* Cloud right */ radial-gradient(
+      ellipse 55% 28% at 85% 50%,
+      rgba(20, 20, 40, 0.8) 0%,
+      transparent 70%
+    ),
+    /* Lower cloud layer */ radial-gradient(
+      ellipse 80% 30% at 50% 65%,
+      rgba(18, 18, 35, 0.95) 0%,
+      rgba(12, 12, 25, 0.7) 60%,
+      transparent 90%
+    ),
+    /* Deep sky gradient */ linear-gradient(
+      180deg,
+      #050510 0%,
+      #0a0a1e 40%,
+      #0f0f25 70%,
+      #0a0a1a 100%
+    );
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-overlay {
+  text-align: center;
+  padding: 2rem;
+}
+
+.home-title {
+  color: #e8eaf0;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 24px rgba(100, 140, 255, 0.4), 0 0 60px rgba(80, 120, 255, 0.15);
+}
