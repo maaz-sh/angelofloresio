@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Dark purple background matching UW brand -->
+  <rect width="400" height="400" fill="#2d2462"/>
+
+  <!-- White block W -->
+  <polygon
+    points="35,28 88,28 160,248 200,68 240,248 312,28 365,28 327,285 250,285 200,110 150,285 73,285"
+    fill="#ffffff"
+  />
+
+  <!-- "UNIVERSITY of WASHINGTON" — serif, spaced -->
+  <text
+    x="200" y="340"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="19.5"
+    letter-spacing="3.5"
+    fill="#ffffff"
+  >UNIVERSITY <tspan font-style="italic" letter-spacing="1">of</tspan><tspan letter-spacing="3.5"> WASHINGTON</tspan></text>
+</svg>

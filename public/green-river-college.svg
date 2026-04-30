@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Green background -->
+  <rect width="400" height="400" fill="#2e7d32"/>
+
+  <!-- Mountain silhouette — left peak -->
+  <polygon points="60,260 150,120 200,180 150,260" fill="white"/>
+  <!-- Mountain silhouette — right/main peak -->
+  <polygon points="140,260 240,90 340,260" fill="white"/>
+  <!-- Inner valley cutout (river valley between peaks) -->
+  <polygon points="155,260 200,195 245,260" fill="#2e7d32"/>
+  <!-- Small lower hill left -->
+  <ellipse cx="95" cy="262" rx="50" ry="18" fill="white"/>
+  <!-- Small lower hill right -->
+  <ellipse cx="305" cy="262" rx="50" ry="18" fill="white"/>
+
+  <!-- Horizontal rule above text -->
+  <rect x="80" y="278" width="240" height="3" fill="white"/>
+
+  <!-- "Green River" text -->
+  <text x="200" y="315"
+        text-anchor="middle"
+        font-size="44"
+        font-weight="700"
+        font-family="Georgia, 'Times New Roman', serif"
+        fill="white">Green River</text>
+
+  <!-- Horizontal rule below "Green River" -->
+  <rect x="80" y="324" width="240" height="2" fill="white"/>
+
+  <!-- "COLLEGE" text -->
+  <text x="200" y="356"
+        text-anchor="middle"
+        font-size="26"
+        font-weight="400"
+        letter-spacing="8"
+        font-family="Georgia, 'Times New Roman', serif"
+        fill="white">COLLEGE</text>
+</svg>

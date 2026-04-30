@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Outer ring background -->
+  <circle cx="200" cy="200" r="195" fill="#3b2a8a"/>
+  <!-- Inner white circle -->
+  <circle cx="200" cy="200" r="148" fill="#f5f0e8"/>
+  <!-- Thin inner border ring -->
+  <circle cx="200" cy="200" r="148" fill="none" stroke="#3b2a8a" stroke-width="3"/>
+  <!-- Thin outer border of ring -->
+  <circle cx="200" cy="200" r="195" fill="none" stroke="#c8b97a" stroke-width="2"/>
+  <!-- Inner edge of text ring -->
+  <circle cx="200" cy="200" r="155" fill="none" stroke="#c8b97a" stroke-width="1.5"/>
+
+  <!-- "UNIVERSITY OF WASHINGTON" text on arc (top) -->
+  <defs>
+    <path id="topArc" d="M 200,200 m -173,0 a 173,173 0 1,1 346,0" />
+    <path id="bottomArc" d="M 32,210 a 173,173 0 0,0 336,0" />
+  </defs>
+  <text font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#f5f0e8" letter-spacing="3">
+    <textPath href="#topArc" startOffset="4%">UNIVERSITY • OF • WASHINGTON</textPath>
+  </text>
+  <text font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#f5f0e8" letter-spacing="3">
+    <textPath href="#bottomArc" startOffset="22%">• 1861 •</textPath>
+  </text>
+
+  <!-- Shield shape -->
+  <!-- Shield outer (navy) -->
+  <path d="M140,135 L260,135 L260,235 Q260,270 200,290 Q140,270 140,235 Z" fill="#3b2a8a"/>
+  <!-- Shield vertical stripes (cream/white) -->
+  <clipPath id="shieldClip">
+    <path d="M140,135 L260,135 L260,235 Q260,270 200,290 Q140,270 140,235 Z"/>
+  </clipPath>
+  <g clip-path="url(#shieldClip)">
+    <!-- Stripes from bottom of banner to bottom of shield -->
+    <rect x="140" y="175" width="10" height="120" fill="#f5f0e8"/>
+    <rect x="155" y="175" width="10" height="120" fill="#f5f0e8"/>
+    <rect x="170" y="175" width="10" height="120" fill="#f5f0e8"/>
+    <rect x="185" y="175" width="10" height="120" fill="#f5f0e8"/>
+    <rect x="200" y="175" width="10" height="120" fill="#f5f0e8"/>
+    <rect x="215" y="175" width="10" height="120" fill="#f5f0e8"/>
+    <rect x="230" y="175" width="10" height="120" fill="#f5f0e8"/>
+    <rect x="245" y="175" width="10" height="120" fill="#f5f0e8"/>
+  </g>
+
+  <!-- Banner/Chief area (navy) covering top of stripes -->
+  <rect x="140" y="135" width="120" height="42" fill="#3b2a8a"/>
+  <!-- Banner border dots row -->
+  <g fill="none" stroke="#f5f0e8" stroke-width="1.5">
+    <circle cx="154" cy="171" r="2.5"/>
+    <circle cx="164" cy="171" r="2.5"/>
+    <circle cx="174" cy="171" r="2.5"/>
+    <circle cx="184" cy="171" r="2.5"/>
+    <circle cx="194" cy="171" r="2.5"/>
+    <circle cx="204" cy="171" r="2.5"/>
+    <circle cx="214" cy="171" r="2.5"/>
+    <circle cx="224" cy="171" r="2.5"/>
+    <circle cx="234" cy="171" r="2.5"/>
+    <circle cx="244" cy="171" r="2.5"/>
+  </g>
+  <!-- LVX SIT text -->
+  <text x="200" y="161" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#f5f0e8" text-anchor="middle" letter-spacing="2">LVX • • SIT</text>
+
+  <!-- Mountain/crest above shield -->
+  <path d="M148,135 Q165,110 180,118 Q190,105 200,100 Q210,105 220,118 Q235,110 252,135 Z" fill="#3b2a8a"/>
+  <!-- Star -->
+  <polygon points="200,104 203,113 212,113 205,119 208,128 200,122 192,128 195,119 188,113 197,113" fill="#f5f0e8"/>
+
+  <!-- Left laurel branch -->
+  <g fill="none" stroke="#2d6a2d" stroke-width="2" stroke-linecap="round">
+    <path d="M148,255 Q130,240 118,220"/>
+    <path d="M142,250 Q128,248 122,238"/>
+    <path d="M136,258 Q120,260 114,252"/>
+    <path d="M130,263 Q115,268 112,260"/>
+    <path d="M124,266 Q110,275 108,268"/>
+    <path d="M119,268 Q106,280 105,273"/>
+    <!-- Leaves -->
+    <path d="M138,247 Q132,240 136,234 Q140,240 138,247" fill="#2d6a2d"/>
+    <path d="M130,255 Q122,250 124,243 Q130,248 130,255" fill="#2d6a2d"/>
+    <path d="M122,262 Q114,258 117,251 Q123,256 122,262" fill="#2d6a2d"/>
+    <path d="M116,267 Q108,264 111,257 Q117,262 116,267" fill="#2d6a2d"/>
+  </g>
+  <!-- Right laurel branch -->
+  <g fill="none" stroke="#2d6a2d" stroke-width="2" stroke-linecap="round">
+    <path d="M252,255 Q270,240 282,220"/>
+    <path d="M258,250 Q272,248 278,238"/>
+    <path d="M264,258 Q280,260 286,252"/>
+    <path d="M270,263 Q285,268 288,260"/>
+    <path d="M276,266 Q290,275 292,268"/>
+    <path d="M281,268 Q294,280 295,273"/>
+    <path d="M262,247 Q268,240 264,234 Q260,240 262,247" fill="#2d6a2d"/>
+    <path d="M270,255 Q278,250 276,243 Q270,248 270,255" fill="#2d6a2d"/>
+    <path d="M278,262 Q286,258 283,251 Q277,256 278,262" fill="#2d6a2d"/>
+    <path d="M284,267 Q292,264 289,257 Q283,262 284,267" fill="#2d6a2d"/>
+  </g>
+
+  <!-- Purple berries on branches -->
+  <circle cx="110" cy="274" r="4" fill="#5b3a8a"/>
+  <circle cx="106" cy="268" r="3" fill="#5b3a8a"/>
+  <circle cx="114" cy="270" r="3" fill="#5b3a8a"/>
+  <circle cx="290" cy="274" r="4" fill="#5b3a8a"/>
+  <circle cx="294" cy="268" r="3" fill="#5b3a8a"/>
+  <circle cx="286" cy="270" r="3" fill="#5b3a8a"/>
+</svg>

@@ -5,8 +5,8 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark site-navbar">
       <div className="container">
-        <NavLink className="navbar-brand" to="/">
-          angeloflores.io
+        <NavLink className="navbar-brand" to="/" aria-label="Home">
+          <i className="bi bi-house-fill"></i>
         </NavLink>
         <button
           className="navbar-toggler"

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- White background -->
+  <rect width="400" height="300" fill="white"/>
+
+  <!-- OLYMPIC -->
+  <text x="200" y="100"
+        text-anchor="middle"
+        font-size="72"
+        font-weight="900"
+        font-family="Arial Black, Arial, sans-serif"
+        fill="#1a1a1a">OLYMPIC</text>
+
+  <!-- Top rule -->
+  <rect x="30" y="118" width="340" height="3.5" fill="#1a1a1a"/>
+
+  <!-- Three red wave swooshes -->
+  <path fill="#c8102e"
+    d="M40 138 Q100 122 160 138 Q220 154 280 138 Q320 127 360 135 L360 148 Q320 140 280 151 Q220 167 160 151 Q100 135 40 151 Z"/>
+  <path fill="#c8102e"
+    d="M40 155 Q100 139 160 155 Q220 171 280 155 Q320 144 360 152 L360 165 Q320 157 280 168 Q220 184 160 168 Q100 152 40 168 Z"/>
+  <path fill="#c8102e"
+    d="M40 172 Q100 156 160 172 Q220 188 280 172 Q320 161 360 169 L360 182 Q320 174 280 185 Q220 201 160 185 Q100 169 40 185 Z"/>
+
+  <!-- Bottom rule -->
+  <rect x="30" y="192" width="340" height="3.5" fill="#1a1a1a"/>
+
+  <!-- COLLEGE -->
+  <text x="200" y="258"
+        text-anchor="middle"
+        font-size="72"
+        font-weight="900"
+        font-family="Arial Black, Arial, sans-serif"
+        fill="#1a1a1a">COLLEGE</text>
+</svg>

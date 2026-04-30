@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 360">
+  <!-- Purple W with gold border -->
+  <polygon
+    points="42,30 95,30 165,258 205,80 245,258 315,30 368,30 330,298 252,298 205,120 158,298 80,298"
+    fill="#4b2e83"
+    stroke="#e8d5a3"
+    stroke-width="24"
+    stroke-linejoin="miter"
+    stroke-miterlimit="6"
+    paint-order="stroke fill"
+  />
+
+  <!-- Husky head silhouette in gold, positioned in center of W -->
+  <g transform="translate(148, 90)" fill="#e8d5a3">
+    <!-- Main head/skull shape -->
+    <path d="
+      M55 10
+      C40 8 20 14 12 28
+      C6 38 5 52 8 65
+      C3 70 0 78 2 88
+      C4 98 12 104 22 106
+      C28 118 38 128 50 132
+      C58 135 68 134 74 128
+      C80 122 82 112 80 102
+      C92 96 102 85 104 72
+      C106 60 100 46 90 38
+      C82 22 68 12 55 10Z
+    "/>
+    <!-- Pointed ear -->
+    <path d="M50 10 C52 0 60 -8 68 4 C62 8 56 10 50 10Z"/>
+    <!-- Inner ear -->
+    <path d="M54 10 C56 3 62 -2 66 5 C62 8 57 10 54 10Z" fill="#4b2e83"/>
+    <!-- Eye -->
+    <ellipse cx="38" cy="55" rx="7" ry="6" fill="#4b2e83"/>
+    <circle cx="36" cy="54" r="2" fill="#e8d5a3"/>
+    <!-- Snout detail -->
+    <path d="M20 80 C24 76 32 75 36 80 C32 85 24 85 20 80Z" fill="#4b2e83"/>
+    <!-- Mane/fur detail on neck right side -->
+    <path d="M80 102 C88 92 96 82 98 70 C92 80 86 92 80 102Z" fill="#c9b87a"/>
+    <path d="M78 110 C88 100 98 88 100 74 C93 85 88 98 78 110Z" fill="#c9b87a"/>
+  </g>
+</svg>
