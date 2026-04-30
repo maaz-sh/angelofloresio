@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320">
+  <!-- White background -->
+  <rect width="520" height="320" fill="#ffffff"/>
+  <!--
+    12-point block W polygon.
+    Traced clockwise from top-left outer corner.
+    viewBox 520x320 = same ratio as card 260x160, so background-size:cover fills perfectly.
+
+    Points:
+      (52,30)  top-left outer
+      (114,30) top-right of left cap  (flat top)
+      (204,268) bottom of left V-notch
+      (260,84) center peak
+      (316,268) bottom of right V-notch
+      (406,30) top-left of right cap
+      (468,30) top-right outer         (flat top)
+      (432,298) bottom-right outer
+      (318,298) inner-bottom-right (right floor of right notch)
+      (260,112) center valley
+      (202,298) inner-bottom-left  (left floor of left notch)
+      (88,298)  bottom-left outer
+  -->
+  <polygon
+    points="52,30 114,30 204,268 260,84 316,268 406,30 468,30 432,298 318,298 260,112 202,298 88,298"
+    fill="#4b2e83"
+  />
+</svg>
