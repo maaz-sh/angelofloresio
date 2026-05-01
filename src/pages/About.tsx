@@ -430,13 +430,22 @@ function About() {
         </div>
 
         <div className="cert-row">
-          <div className="cert-card cert-card--coursera">
+          <div
+            className="cert-card cert-card--coursera"
+            onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+          >
             <span className="cert-title">Neural Networks and Deep Learning</span>
           </div>
-          <div className="cert-card cert-card--coursera">
+          <div
+            className="cert-card cert-card--coursera"
+            onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+          >
             <span className="cert-title">Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization</span>
           </div>
-          <div className="cert-card cert-card--mos">
+          <div
+            className="cert-card cert-card--mos"
+            onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+          >
             <span className="cert-title">Microsoft Office Specialist Master Certification (MOS)</span>
           </div>
         </div>
