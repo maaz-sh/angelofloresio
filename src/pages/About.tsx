@@ -9,11 +9,6 @@ function About() {
     eduRef.current?.scrollBy({ left: dir === 'right' ? 250 : -250, behavior: 'smooth' })
   }
 
-  function handleLastCertHover() {
-    // Scroll back to the beginning of the cert carousel
-    certRef.current?.scrollTo({ left: 0, behavior: 'smooth' })
-  }
-
   return (
     <div className="container py-5">
       <h2>About</h2>
@@ -435,23 +430,27 @@ function About() {
           </div>
         </div>
 
-        <div className="cert-row" ref={certRef}>
-          <div
-            className="cert-card cert-card--coursera"
-            onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
-          >
+        <div
+          className="cert-row"
+          ref={certRef}
+          onMouseMove={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect()
+            const relativeX = e.clientX - rect.left
+            const percentage = relativeX / rect.width
+            if (percentage <= 0.2) {
+              certRef.current?.scrollBy({ left: -10, behavior: 'auto' })
+            } else if (percentage >= 0.2) {
+              certRef.current?.scrollBy({ left: 10, behavior: 'auto' })
+            }
+          }}
+        >
+          <div className="cert-card cert-card--coursera">
             <span className="cert-title">Neural Networks and Deep Learning</span>
           </div>
-          <div
-            className="cert-card cert-card--coursera"
-            onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
-          >
+          <div className="cert-card cert-card--coursera">
             <span className="cert-title">Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization</span>
           </div>
-          <div
-            className="cert-card cert-card--mos"
-            onMouseEnter={handleLastCertHover}
-          >
+          <div className="cert-card cert-card--mos">
             <span className="cert-title">Microsoft Office Specialist Master Certification (MOS)</span>
           </div>
         </div>
