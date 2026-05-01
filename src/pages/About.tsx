@@ -1,5 +1,74 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import './About.css'
+
+const EVENTS = [
+  { title: 'Nordstrom Hackathon - Shopping through an Apocolyspe', subtitle: '1st Place Winner 🏆', date: 'Oct 2020' },
+  { title: 'Nordstrom Hackathon - Event Streaming', date: 'Aug 2019' },
+  { title: 'Nordstrom Hackathon - Hiring Day App', date: 'Jan 2019' },
+  { title: 'PRCCDC', subtitle: 'Pacific Rim Collegiate Cyber Defense Competition', date: 'Mar 2018', bg: 'prccdc' },
+  { title: 'Annual Shareholders Meeting', date: 'May 2023', bg: 'walmart-tech' },
+]
+
+const CAROUSEL_RADIUS = 300
+
+function EventsCarousel() {
+  const innerRef = useRef<HTMLDivElement>(null)
+  const angleRef = useRef(0)
+  const targetRef = useRef(0)
+  const pausedRef = useRef(false)
+  const lastTimeRef = useRef<number | null>(null)
+  const n = EVENTS.length
+  const STEP = 360 / n
+
+  useEffect(() => {
+    let rafId: number
+    const tick = (now: number) => {
+      const dt = lastTimeRef.current !== null ? (now - lastTimeRef.current) / 1000 : 0
+      lastTimeRef.current = now
+      if (!pausedRef.current) {
+        targetRef.current -= 22 * dt
+      }
+      angleRef.current += (targetRef.current - angleRef.current) * Math.min(1, dt * 6)
+      if (innerRef.current) {
+        innerRef.current.style.transform = `rotateY(${angleRef.current}deg)`
+      }
+      rafId = requestAnimationFrame(tick)
+    }
+    rafId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafId)
+  }, [])
+
+  const navigate = (dir: 1 | -1) => {
+    const snap = Math.round(targetRef.current / STEP) * STEP
+    targetRef.current = snap + dir * STEP
+  }
+
+  return (
+    <div
+      className="events-scene"
+      onMouseEnter={() => { pausedRef.current = true }}
+      onMouseLeave={() => { pausedRef.current = false; lastTimeRef.current = null }}
+    >
+      <div className="events-carousel-inner" ref={innerRef}>
+        {EVENTS.map((ev, i) => (
+          <div
+            key={i}
+            className={`event-card${'bg' in ev && ev.bg ? ` event-card--${ev.bg}` : ''}`}
+            style={{ transform: `rotateY(${i * STEP}deg) translateZ(${CAROUSEL_RADIUS}px)` }}
+          >
+            <div className="event-card-title">{ev.title}</div>
+            {'subtitle' in ev && ev.subtitle && (
+              <div className="event-card-subtitle">{ev.subtitle}</div>
+            )}
+            <div className="event-card-date">{ev.date}</div>
+          </div>
+        ))}
+      </div>
+      <button className="events-nav events-nav--prev" onClick={() => navigate(1)} aria-label="Previous">&#8249;</button>
+      <button className="events-nav events-nav--next" onClick={() => navigate(-1)} aria-label="Next">&#8250;</button>
+    </div>
+  )
+}
 
 function About() {
   const eduRef = useRef<HTMLDivElement>(null)
@@ -485,6 +554,7 @@ function About() {
 
       <section className="stack-section">
         <h2>Events</h2>
+        <EventsCarousel />
       </section>
     </div>
   )

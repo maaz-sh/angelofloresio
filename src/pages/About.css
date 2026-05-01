@@ -252,4 +252,158 @@
   z-index: 1;
 }
 
+/* ── Events 3D Carousel ─────────────────────────────────── */
+.events-scene {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+
+.events-scene::before,
+.events-scene::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 110px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.events-scene::before {
+  left: 0;
+  background: linear-gradient(to right, #0d0d1a 0%, transparent 100%);
+}
+
+.events-scene::after {
+  right: 0;
+  background: linear-gradient(to left, #0d0d1a 0%, transparent 100%);
+}
+
+.events-carousel-inner {
+  width: 260px;
+  height: 210px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.event-card {
+  position: absolute;
+  width: 260px;
+  height: 210px;
+  top: 0;
+  left: 0;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #1a1a2e 0%, #0f0f1e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  overflow: hidden;
+  cursor: default;
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(120, 180, 255, 0.5), transparent);
+  border-radius: 16px 16px 0 0;
+  z-index: 2;
+}
+
+.event-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/nordstrom_innovate.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  border-radius: 16px;
+  z-index: 0;
+}
+
+.event-card-title {
+  color: #fff;
+  font-size: 0.87rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 0.5px #000, 0.5px 0.5px 0.5px #000;
+}
+
+.event-card-subtitle {
+  color: #7dd3fc;
+  font-size: 0.72rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 0.5px #000, 0.5px 0.5px 0.5px #000;
+}
+
+.event-card-date {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  margin-top: 6px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 0.5px #000, 0.5px 0.5px 0.5px #000;
+}
+
+.events-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+  user-select: none;
+  padding-bottom: 2px;
+}
+
+.events-nav:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.events-nav--prev { left: 6px; }
+.events-nav--next { right: 6px; }
+
+/* ── Event card background overrides ───────────────────── */
+.event-card--prccdc::after {
+  background-image: url('/PRCCDC.png');
+}
+
+.event-card--walmart-tech::after {
+  background-image: url('/walmart_tech.jpg');
+}
+
 
