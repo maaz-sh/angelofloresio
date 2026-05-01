@@ -480,6 +480,12 @@ function About() {
         </div>
 
       </section>
+
+      <hr className="my-5" />
+
+      <section className="stack-section">
+        <h2>Events</h2>
+      </section>
     </div>
   )
 }
