@@ -65,7 +65,7 @@
   height: 160px;
   border-radius: 12px;
   position: relative;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   margin-right: -24px;
   border: 2px solid rgba(255, 255, 255, 0.12);
   transition: transform 0.2s ease;

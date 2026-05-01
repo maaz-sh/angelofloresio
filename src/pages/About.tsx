@@ -386,28 +386,40 @@ function About() {
         <div className="edu-carousel-wrapper">
           <div className="edu-carousel" ref={eduRef}>
 
-            <div className="edu-card edu-card--green-river">
+            <div
+              className="edu-card edu-card--green-river"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">Green River Community College</span>
                 <span className="edu-card-years">2005 – 2012</span>
               </div>
             </div>
 
-            <div className="edu-card edu-card--olympic">
+            <div
+              className="edu-card edu-card--olympic"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">Olympic College</span>
                 <span className="edu-card-years">2013 – 2016</span>
               </div>
             </div>
 
-            <div className="edu-card edu-card--uw">
+            <div
+              className="edu-card edu-card--uw"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">University of Washington</span>
                 <span className="edu-card-years">2016 – 2017</span>
               </div>
             </div>
 
-            <div className="edu-card edu-card--smu">
+            <div
+              className="edu-card edu-card--smu"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">Saint Martin's University</span>
                 <span className="edu-card-years">2017 – 2018</span>
