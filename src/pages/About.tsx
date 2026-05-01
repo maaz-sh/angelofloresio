@@ -3,9 +3,15 @@ import './About.css'
 
 function About() {
   const eduRef = useRef<HTMLDivElement>(null)
+  const certRef = useRef<HTMLDivElement>(null)
 
   function scrollEdu(dir: 'left' | 'right') {
     eduRef.current?.scrollBy({ left: dir === 'right' ? 250 : -250, behavior: 'smooth' })
+  }
+
+  function handleLastCertHover() {
+    // Scroll back to the beginning of the cert carousel
+    certRef.current?.scrollTo({ left: 0, behavior: 'smooth' })
   }
 
   return (
@@ -429,7 +435,7 @@ function About() {
           </div>
         </div>
 
-        <div className="cert-row">
+        <div className="cert-row" ref={certRef}>
           <div
             className="cert-card cert-card--coursera"
             onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
@@ -444,7 +450,7 @@ function About() {
           </div>
           <div
             className="cert-card cert-card--mos"
-            onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            onMouseEnter={handleLastCertHover}
           >
             <span className="cert-title">Microsoft Office Specialist Master Certification (MOS)</span>
           </div>
