@@ -430,57 +430,51 @@ function About() {
           </div>
         </div>
 
-        <div className="cert-row" ref={certRef}>
-          <div
-            className="cert-card cert-card--coursera"
-            onMouseMove={(e) => {
-              if (window.innerWidth > 768) return
-              const rect = e.currentTarget.getBoundingClientRect()
-              const relativeX = e.clientX - rect.left
-              const percentage = relativeX / rect.width
-              if (percentage <= 0.2) {
-                // Already first card, no previous to scroll to
-              } else if (percentage >= 0.2) {
-                const nextCard = e.currentTarget.nextElementSibling as HTMLElement
-                nextCard?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+        <div
+          className="cert-row"
+          ref={certRef}
+          onMouseMove={(e) => {
+            if (window.innerWidth > 768) return
+            const rect = e.currentTarget.getBoundingClientRect()
+            const relativeX = e.clientX - rect.left
+            const percentage = relativeX / rect.width
+            const edgeThreshold = 0.15
+            if (percentage <= edgeThreshold) {
+              // Scroll left when near the left edge
+              const cards = certRef.current?.querySelectorAll('.cert-card')
+              if (cards) {
+                for (let i = cards.length - 1; i >= 0; i--) {
+                  const card = cards[i] as HTMLElement
+                  const cardRect = card.getBoundingClientRect()
+                  if (cardRect.left < rect.left) {
+                    card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+                    break
+                  }
+                }
               }
-            }}
-          >
+            } else if (percentage >= 1 - edgeThreshold) {
+              // Scroll right when near the right edge
+              const cards = certRef.current?.querySelectorAll('.cert-card')
+              if (cards) {
+                for (let i = 0; i < cards.length; i++) {
+                  const card = cards[i] as HTMLElement
+                  const cardRect = card.getBoundingClientRect()
+                  if (cardRect.right > rect.right) {
+                    card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+                    break
+                  }
+                }
+              }
+            }
+          }}
+        >
+          <div className="cert-card cert-card--coursera">
             <span className="cert-title">Neural Networks and Deep Learning</span>
           </div>
-          <div
-            className="cert-card cert-card--coursera"
-            onMouseMove={(e) => {
-              if (window.innerWidth > 768) return
-              const rect = e.currentTarget.getBoundingClientRect()
-              const relativeX = e.clientX - rect.left
-              const percentage = relativeX / rect.width
-              if (percentage <= 0.2) {
-                const prevCard = e.currentTarget.previousElementSibling as HTMLElement
-                prevCard?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
-              } else if (percentage >= 0.2) {
-                const nextCard = e.currentTarget.nextElementSibling as HTMLElement
-                nextCard?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
-              }
-            }}
-          >
+          <div className="cert-card cert-card--coursera">
             <span className="cert-title">Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization</span>
           </div>
-          <div
-            className="cert-card cert-card--mos"
-            onMouseMove={(e) => {
-              if (window.innerWidth > 768) return
-              const rect = e.currentTarget.getBoundingClientRect()
-              const relativeX = e.clientX - rect.left
-              const percentage = relativeX / rect.width
-              if (percentage <= 0.2) {
-                const prevCard = e.currentTarget.previousElementSibling as HTMLElement
-                prevCard?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
-              } else if (percentage >= 0.2) {
-                // Already last card, no next to scroll to
-              }
-            }}
-          >
+          <div className="cert-card cert-card--mos">
             <span className="cert-title">Microsoft Office Specialist Master Certification (MOS)</span>
           </div>
         </div>
