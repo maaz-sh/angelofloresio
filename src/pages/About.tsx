@@ -3,6 +3,7 @@ import './About.css'
 
 function About() {
   const eduRef = useRef<HTMLDivElement>(null)
+  const certRef = useRef<HTMLDivElement>(null)
 
   function scrollEdu(dir: 'left' | 'right') {
     eduRef.current?.scrollBy({ left: dir === 'right' ? 250 : -250, behavior: 'smooth' })
@@ -386,28 +387,40 @@ function About() {
         <div className="edu-carousel-wrapper">
           <div className="edu-carousel" ref={eduRef}>
 
-            <div className="edu-card edu-card--green-river">
+            <div
+              className="edu-card edu-card--green-river"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">Green River Community College</span>
                 <span className="edu-card-years">2005 – 2012</span>
               </div>
             </div>
 
-            <div className="edu-card edu-card--olympic">
+            <div
+              className="edu-card edu-card--olympic"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">Olympic College</span>
                 <span className="edu-card-years">2013 – 2016</span>
               </div>
             </div>
 
-            <div className="edu-card edu-card--uw">
+            <div
+              className="edu-card edu-card--uw"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">University of Washington</span>
                 <span className="edu-card-years">2016 – 2017</span>
               </div>
             </div>
 
-            <div className="edu-card edu-card--smu">
+            <div
+              className="edu-card edu-card--smu"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">Saint Martin's University</span>
                 <span className="edu-card-years">2017 – 2018</span>
@@ -417,7 +430,44 @@ function About() {
           </div>
         </div>
 
-        <div className="cert-row">
+        <div
+          className="cert-row"
+          ref={certRef}
+          onMouseMove={(e) => {
+            if (window.innerWidth > 768) return
+            const rect = e.currentTarget.getBoundingClientRect()
+            const relativeX = e.clientX - rect.left
+            const percentage = relativeX / rect.width
+            const edgeThreshold = 0.15
+            if (percentage <= edgeThreshold) {
+              // Scroll left when near the left edge
+              const cards = certRef.current?.querySelectorAll('.cert-card')
+              if (cards) {
+                for (let i = cards.length - 1; i >= 0; i--) {
+                  const card = cards[i] as HTMLElement
+                  const cardRect = card.getBoundingClientRect()
+                  if (cardRect.left < rect.left) {
+                    card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+                    break
+                  }
+                }
+              }
+            } else if (percentage >= 1 - edgeThreshold) {
+              // Scroll right when near the right edge
+              const cards = certRef.current?.querySelectorAll('.cert-card')
+              if (cards) {
+                for (let i = 0; i < cards.length; i++) {
+                  const card = cards[i] as HTMLElement
+                  const cardRect = card.getBoundingClientRect()
+                  if (cardRect.right > rect.right) {
+                    card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+                    break
+                  }
+                }
+              }
+            }
+          }}
+        >
           <div className="cert-card cert-card--coursera">
             <span className="cert-title">Neural Networks and Deep Learning</span>
           </div>
@@ -429,6 +479,12 @@ function About() {
           </div>
         </div>
 
+      </section>
+
+      <hr className="my-5" />
+
+      <section className="stack-section">
+        <h2>Events</h2>
       </section>
     </div>
   )
