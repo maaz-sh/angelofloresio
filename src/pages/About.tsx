@@ -74,10 +74,6 @@ function About() {
   const eduRef = useRef<HTMLDivElement>(null)
   const certRef = useRef<HTMLDivElement>(null)
 
-  function scrollEdu(dir: 'left' | 'right') {
-    eduRef.current?.scrollBy({ left: dir === 'right' ? 250 : -250, behavior: 'smooth' })
-  }
-
   return (
     <div className="container py-5">
       <h2>About</h2>
