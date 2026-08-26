@@ -1,6 +1,79 @@
+import { useEffect, useRef } from 'react'
 import './About.css'
 
+const EVENTS = [
+  { title: 'Nordstrom Hackathon - Shopping through an Apocolyspe', subtitle: '1st Place Winner 🏆', date: 'Oct 2020' },
+  { title: 'Nordstrom Hackathon - Event Streaming', date: 'Aug 2019' },
+  { title: 'Nordstrom Hackathon - Hiring Day App', date: 'Jan 2019' },
+  { title: 'PRCCDC', subtitle: 'Pacific Rim Collegiate Cyber Defense Competition', date: 'Mar 2018', bg: 'prccdc' },
+  { title: 'Annual Shareholders Meeting', date: 'May 2023', bg: 'walmart-tech' },
+]
+
+const CAROUSEL_RADIUS = 300
+
+function EventsCarousel() {
+  const innerRef = useRef<HTMLDivElement>(null)
+  const angleRef = useRef(0)
+  const targetRef = useRef(0)
+  const pausedRef = useRef(false)
+  const lastTimeRef = useRef<number | null>(null)
+  const n = EVENTS.length
+  const STEP = 360 / n
+
+  useEffect(() => {
+    let rafId: number
+    const tick = (now: number) => {
+      const dt = lastTimeRef.current !== null ? (now - lastTimeRef.current) / 1000 : 0
+      lastTimeRef.current = now
+      if (!pausedRef.current) {
+        targetRef.current -= 22 * dt
+      }
+      angleRef.current += (targetRef.current - angleRef.current) * Math.min(1, dt * 6)
+      if (innerRef.current) {
+        innerRef.current.style.transform = `rotateY(${angleRef.current}deg)`
+      }
+      rafId = requestAnimationFrame(tick)
+    }
+    rafId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafId)
+  }, [])
+
+  const navigate = (dir: 1 | -1) => {
+    const snap = Math.round(targetRef.current / STEP) * STEP
+    targetRef.current = snap + dir * STEP
+  }
+
+  return (
+    <div
+      className="events-scene"
+      onMouseEnter={() => { pausedRef.current = true }}
+      onMouseLeave={() => { pausedRef.current = false; lastTimeRef.current = null }}
+    >
+      <div className="events-carousel-inner" ref={innerRef}>
+        {EVENTS.map((ev, i) => (
+          <div
+            key={i}
+            className={`event-card${'bg' in ev && ev.bg ? ` event-card--${ev.bg}` : ''}`}
+            style={{ transform: `rotateY(${i * STEP}deg) translateZ(${CAROUSEL_RADIUS}px)` }}
+          >
+            <div className="event-card-title">{ev.title}</div>
+            {'subtitle' in ev && ev.subtitle && (
+              <div className="event-card-subtitle">{ev.subtitle}</div>
+            )}
+            <div className="event-card-date">{ev.date}</div>
+          </div>
+        ))}
+      </div>
+      <button className="events-nav events-nav--prev" onClick={() => navigate(1)} aria-label="Previous">&#8249;</button>
+      <button className="events-nav events-nav--next" onClick={() => navigate(-1)} aria-label="Next">&#8250;</button>
+    </div>
+  )
+}
+
 function About() {
+  const eduRef = useRef<HTMLDivElement>(null)
+  const certRef = useRef<HTMLDivElement>(null)
+
   return (
     <div className="container py-5">
       <h2>About</h2>
@@ -410,28 +483,40 @@ function About() {
         <div className="edu-carousel-wrapper">
           <div className="edu-carousel">
 
-            <div className="edu-card edu-card--green-river">
+            <div
+              className="edu-card edu-card--green-river"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">Green River Community College</span>
                 <span className="edu-card-years">2005 – 2012</span>
               </div>
             </div>
 
-            <div className="edu-card edu-card--olympic">
+            <div
+              className="edu-card edu-card--olympic"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">Olympic College</span>
                 <span className="edu-card-years">2013 – 2016</span>
               </div>
             </div>
 
-            <div className="edu-card edu-card--uw">
+            <div
+              className="edu-card edu-card--uw"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">University of Washington</span>
                 <span className="edu-card-years">2016 – 2017</span>
               </div>
             </div>
 
-            <div className="edu-card edu-card--smu">
+            <div
+              className="edu-card edu-card--smu"
+              onMouseEnter={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })}
+            >
               <div className="edu-card-overlay">
                 <span className="edu-card-title">Saint Martin's University</span>
                 <span className="edu-card-years">2017 – 2018</span>
@@ -441,7 +526,44 @@ function About() {
           </div>
         </div>
 
-        <div className="cert-row">
+        <div
+          className="cert-row"
+          ref={certRef}
+          onMouseMove={(e) => {
+            if (window.innerWidth > 768) return
+            const rect = e.currentTarget.getBoundingClientRect()
+            const relativeX = e.clientX - rect.left
+            const percentage = relativeX / rect.width
+            const edgeThreshold = 0.15
+            if (percentage <= edgeThreshold) {
+              // Scroll left when near the left edge
+              const cards = certRef.current?.querySelectorAll('.cert-card')
+              if (cards) {
+                for (let i = cards.length - 1; i >= 0; i--) {
+                  const card = cards[i] as HTMLElement
+                  const cardRect = card.getBoundingClientRect()
+                  if (cardRect.left < rect.left) {
+                    card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+                    break
+                  }
+                }
+              }
+            } else if (percentage >= 1 - edgeThreshold) {
+              // Scroll right when near the right edge
+              const cards = certRef.current?.querySelectorAll('.cert-card')
+              if (cards) {
+                for (let i = 0; i < cards.length; i++) {
+                  const card = cards[i] as HTMLElement
+                  const cardRect = card.getBoundingClientRect()
+                  if (cardRect.right > rect.right) {
+                    card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+                    break
+                  }
+                }
+              }
+            }
+          }}
+        >
           <div className="cert-card cert-card--coursera">
             <span className="cert-title">Neural Networks and Deep Learning</span>
           </div>
@@ -453,6 +575,13 @@ function About() {
           </div>
         </div>
 
+      </section>
+
+      <hr className="my-5" />
+
+      <section className="stack-section">
+        <h2>Events</h2>
+        <EventsCarousel />
       </section>
     </div>
   )
