@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# Angelo Flores — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Source for [angelofloresio.vercel.app](https://angelofloresio.vercel.app/), a recruiter-focused portfolio for Angelo Flores, Full-Stack Software Engineer.
 
-Currently, two official plugins are available:
+The site highlights professional experience, technical skills, selected projects, and a downloadable résumé.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Highlights
 
-## React Compiler
+- Responsive home, About, and Projects pages
+- Expandable project cards for [CareerFlow](https://careerflow-three-steel.vercel.app/) and [Chess](https://chess-tau-umber.vercel.app/)
+- Embedded CareerFlow product walkthrough
+- Professional experience, education, certifications, and technical-stack sections
+- Downloadable résumé and links to LinkedIn and GitHub
+- Custom AF monogram used for the site favicon and navigation brand
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Built with
 
-## Expanding the ESLint configuration
+- React 19 and TypeScript
+- Vite
+- React Router
+- Bootstrap and Bootstrap Icons
+- CSS for custom responsive layouts and interactions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Run locally
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Prerequisites: Node.js 20 or newer and npm.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```powershell
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Vite will print a local address, typically `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Quality checks
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```powershell
+npm run lint
+npm run build
 ```
+
+Use `npm run preview` to inspect the production build locally.
+
+## Project links
+
+- Portfolio: [angelofloresio.vercel.app](https://angelofloresio.vercel.app/)
+- CareerFlow: [Live site](https://careerflow-three-steel.vercel.app/) · [Source](https://github.com/maaz-sh/CareerFlow)
+- Chess: [Live site](https://chess-tau-umber.vercel.app/) · [Source](https://github.com/maaz-sh/chess)
+- LinkedIn: [Angelo Flores](https://www.linkedin.com/in/angelo-flores-449068ba/)
+- GitHub: [@atreyhazelhispanic](https://github.com/atreyhazelhispanic)
+
+## Deployment
+
+The site is deployed with Vercel. Merges to the repository's production branch trigger a new production deployment.
