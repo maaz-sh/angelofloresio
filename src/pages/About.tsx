@@ -1,13 +1,6 @@
-import { useRef } from 'react'
 import './About.css'
 
 function About() {
-  const eduRef = useRef<HTMLDivElement>(null)
-
-  function scrollEdu(dir: 'left' | 'right') {
-    eduRef.current?.scrollBy({ left: dir === 'right' ? 250 : -250, behavior: 'smooth' })
-  }
-
   return (
     <div className="container py-5">
       <h2>About</h2>
@@ -15,6 +8,31 @@ function About() {
         My name is Angelo Flores. I am a developer and this is my home website.
         I'm currently embarking on a journey to return to the technology field.
       </p>
+
+      <section className="experience-section">
+        <h2>Professional Experience</h2>
+        <p className="experience-intro">A concise snapshot of the work behind my technical focus.</p>
+        <div className="experience-grid">
+          <article className="experience-card">
+            <p className="experience-period">2019 - 2022</p>
+            <h3>Software Engineer</h3>
+            <p className="experience-company">Nordstrom (HQ)</p>
+            <p>Built Java Spring Boot microservices for search, browsing, navigation, and routing; contributed React work and REST integrations across AWS, EKS, Fargate, Kafka, and GitLab CI/CD.</p>
+          </article>
+          <article className="experience-card">
+            <p className="experience-period">2018</p>
+            <h3>Software Engineer Contractor</h3>
+            <p className="experience-company">Integrity Solutions LLC</p>
+            <p>Co-engineered a cloud-native migration, building a Vue CRUD application backed by RDS and integrating with the Washington State Liquor Control Board API.</p>
+          </article>
+          <article className="experience-card">
+            <p className="experience-period">2025 - 2026</p>
+            <h3>Digital Coach</h3>
+            <p className="experience-company">Walmart</p>
+            <p>Used web and mobile-app metrics to grow peak daily volume from $35K to $60K, while supporting digital fulfillment, Spark Driver operations, and store-performance reporting.</p>
+          </article>
+        </div>
+      </section>
 
       <hr className="my-5" />
 
@@ -261,6 +279,12 @@ function About() {
               OpenAI
             </button>
 
+            {/* Model Context Protocol */}
+            <button className="tech-chip" type="button" tabIndex={-1}>
+              <img src="/mcp.png" width="18" height="18" alt="" aria-hidden="true" />
+              MCP
+            </button>
+
             {/* Copilot */}
             <button className="tech-chip" type="button" tabIndex={-1}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="18" height="18" aria-hidden="true">
@@ -384,7 +408,7 @@ function About() {
         <p className="mt-1 mb-3 text-white" style={{ fontSize: '0.9rem' }}>Academic background and certifications.</p>
 
         <div className="edu-carousel-wrapper">
-          <div className="edu-carousel" ref={eduRef}>
+          <div className="edu-carousel">
 
             <div className="edu-card edu-card--green-river">
               <div className="edu-card-overlay">

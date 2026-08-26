@@ -2,6 +2,60 @@
   margin-top: 1.5rem;
 }
 
+.experience-section {
+  margin-top: 2.5rem;
+}
+
+.experience-intro {
+  color: #bdc3d5;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.experience-card {
+  padding: 1.15rem;
+  border: 1px solid rgba(184, 198, 255, 0.2);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.experience-card h3 {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+}
+
+.experience-card p:last-child {
+  margin: 0.75rem 0 0;
+  color: #cbd0df;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.experience-period {
+  margin: 0;
+  color: #aebfff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.experience-company {
+  margin: 0;
+  color: #aeb5c8;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 767px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .stack-row {
   padding: 0.6rem 0;
 }
