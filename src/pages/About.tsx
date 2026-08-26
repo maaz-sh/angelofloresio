@@ -71,7 +71,6 @@ function EventsCarousel() {
 }
 
 function About() {
-  const eduRef = useRef<HTMLDivElement>(null)
   const certRef = useRef<HTMLDivElement>(null)
 
   return (
