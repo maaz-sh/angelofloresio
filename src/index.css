@@ -14,3 +14,14 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.site-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.site-content > .home-hero {
+  flex: 1;
+  min-height: 0;
+}
