@@ -12,7 +12,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-dark site-navbar">
       <div className="container">
         <NavLink className="navbar-brand" to="/" aria-label="Home" onClick={closeMenu}>
-          <i className="bi bi-house-fill"></i>
+          <img className="navbar-monogram" src="/favicon.svg" alt="AF" />
         </NavLink>
         <button
           className="navbar-toggler"
