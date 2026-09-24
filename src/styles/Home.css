@@ -52,6 +52,8 @@
 }
 
 .home-intro-sequence {
+  --intro-a-offset: -42vw;
+  --intro-f-offset: 42vw;
   position: fixed;
   z-index: 1000;
   inset: 0;
@@ -103,21 +105,21 @@
 }
 
 @keyframes intro-a {
-  0% { opacity: 0; transform: translateX(-42vw); }
+  0% { opacity: 0; transform: translateX(var(--intro-a-offset)); }
   62% { opacity: 1; transform: translateX(2.5%); }
   82% { transform: translateX(-1%); }
   100% { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes intro-f {
-  0% { opacity: 0; transform: translateX(42vw); }
+  0% { opacity: 0; transform: translateX(var(--intro-f-offset)); }
   62% { opacity: 1; transform: translateX(-2.5%); }
   82% { transform: translateX(1%); }
   100% { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes intro-mark-rise {
-  0%, 52% { transform: translateY(0) scale(1); }
+  0%, 60% { transform: translateY(0) scale(1); }
   72% { transform: translateY(0) scale(1.025); }
   100% { opacity: 0; transform: translateY(-18vh) scale(0.58); }
 }
@@ -213,7 +215,29 @@
 }
 
 @media (max-width: 575px) {
+  .home-intro-sequence {
+    --intro-a-offset: -32vw;
+    --intro-f-offset: 32vw;
+  }
+
+  .home-intro-sequence--running {
+    animation-duration: 3.2s;
+  }
+
   .home-intro-mark {
     width: min(82vw, 23rem);
+  }
+
+  .home-intro-sequence--running .home-intro-mark {
+    animation-duration: 3.2s;
+  }
+
+  .home-intro-sequence--running .home-intro-mark .monogram-letter-a,
+  .home-intro-sequence--running .home-intro-mark .monogram-letter-f {
+    animation-duration: 1.4s;
+  }
+
+  .home-hero--intro-pending.home-hero--introducing > :not(.home-intro-sequence) {
+    animation-duration: 3.2s;
   }
 }
