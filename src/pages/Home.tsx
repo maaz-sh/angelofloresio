@@ -9,21 +9,30 @@ function Home() {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     return !reduceMotion && sessionStorage.getItem('af-intro-played') !== 'true'
   })
+  const [introStarted, setIntroStarted] = useState(false)
 
   useEffect(() => {
     if (!showIntro) return
 
-    const timer = window.setTimeout(() => {
-      sessionStorage.setItem('af-intro-played', 'true')
-      setShowIntro(false)
-    }, 2000)
+    let secondFrame = 0
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => setIntroStarted(true))
+    })
 
-    return () => window.clearTimeout(timer)
+    return () => {
+      window.cancelAnimationFrame(firstFrame)
+      window.cancelAnimationFrame(secondFrame)
+    }
   }, [showIntro])
 
+  const finishIntro = () => {
+    sessionStorage.setItem('af-intro-played', 'true')
+    setShowIntro(false)
+  }
+
   return (
-    <div className={`home-hero${showIntro ? ' home-hero--introducing' : ''}`}>
-      {showIntro && <HomeIntro />}
+    <div className={`home-hero${showIntro ? ` home-hero--intro-pending${introStarted ? ' home-hero--introducing' : ''}` : ''}`}>
+      {showIntro && <HomeIntro isRunning={introStarted} onComplete={finishIntro} />}
       <div className="home-identity">
         <p className="home-eyebrow">Full-Stack Software Engineer · Cloud · AI</p>
         <h1 className="home-title">Angelo Flores</h1>

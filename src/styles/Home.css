@@ -59,6 +59,13 @@
   place-items: center;
   overflow: hidden;
   pointer-events: none;
+  visibility: hidden;
+  backdrop-filter: blur(18px);
+  background: rgba(5, 5, 16, 0.12);
+}
+
+.home-intro-sequence--running {
+  visibility: visible;
   animation: intro-layer 2s ease both;
 }
 
@@ -70,20 +77,28 @@
   filter:
     drop-shadow(0 0 12px rgba(218, 226, 255, 0.72))
     drop-shadow(0 0 42px rgba(104, 119, 183, 0.52));
+}
+
+.home-intro-sequence--running .home-intro-mark {
   animation: intro-mark-rise 2s cubic-bezier(0.22, 0.75, 0.26, 1) both;
 }
 
-.home-intro-mark .monogram-letter-a {
+.home-intro-sequence--running .home-intro-mark .monogram-letter-a {
   transform-origin: center;
   animation: intro-a 0.88s cubic-bezier(0.18, 0.8, 0.25, 1) both;
 }
 
-.home-intro-mark .monogram-letter-f {
+.home-intro-sequence--running .home-intro-mark .monogram-letter-f {
   transform-origin: center;
   animation: intro-f 0.88s cubic-bezier(0.18, 0.8, 0.25, 1) both;
 }
 
-.home-hero--introducing > :not(.home-intro-sequence) {
+.home-hero--intro-pending > :not(.home-intro-sequence) {
+  opacity: 0;
+  filter: blur(12px);
+}
+
+.home-hero--intro-pending.home-hero--introducing > :not(.home-intro-sequence) {
   animation: home-content-reveal 2s ease both;
 }
 
