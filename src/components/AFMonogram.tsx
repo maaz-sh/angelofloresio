@@ -1,0 +1,30 @@
+type AFMonogramProps = {
+  className?: string
+  decorative?: boolean
+}
+
+function AFMonogram({ className = '', decorative = false }: AFMonogramProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 640 520"
+      role={decorative ? undefined : 'img'}
+      aria-hidden={decorative || undefined}
+      aria-label={decorative ? undefined : 'Angelo Flores monogram'}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g className="monogram-letter monogram-letter-a">
+        <path d="M74 424C34 390 38 326 81 294c35-26 79-20 111 8-31-7-63 5-75 34-12 27 3 55 30 61 48 11 82-30 105-83l79-185c19-45 48-78 88-94-31 28-49 63-66 104l-75 181c-32 77-79 132-145 137-22 2-43-9-59-33Z" />
+        <path d="M274 273c42-32 89-47 140-47h113v42H405c-49 0-93 9-131 26v-21Z" />
+      </g>
+      <g className="monogram-letter monogram-letter-f">
+        <path d="M357 91c0-10 8-18 18-18h46v323c0 31 8 53 29 69-42 0-68-20-68-66V115h-25V91Z" />
+        <path d="M393 78h116c54 0 91-18 119-53-4 62-47 99-116 99H393V78Z" />
+        <path d="M393 225h90c45 0 79-14 105-43-6 54-42 86-103 86h-92v-43Z" />
+        <path d="M382 395h39c-1 42 14 62 46 75-54 4-85-21-85-75Z" />
+      </g>
+    </svg>
+  )
+}
+
+export default AFMonogram

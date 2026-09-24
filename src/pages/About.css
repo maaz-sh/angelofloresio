@@ -29,11 +29,40 @@
   font-size: 1rem;
 }
 
-.experience-card p:last-child {
+.experience-card > p:last-child,
+.experience-description {
   margin: 0.75rem 0 0;
   color: #cbd0df;
   font-size: 0.9rem;
   line-height: 1.55;
+}
+
+.experience-description {
+  max-height: 11rem;
+  padding-right: 0.65rem;
+  overflow-y: auto;
+  scrollbar-color: rgba(174, 191, 255, 0.55) rgba(255, 255, 255, 0.06);
+  scrollbar-width: thin;
+}
+
+.experience-description:focus-visible {
+  border-radius: 0.35rem;
+  outline: 2px solid #aebfff;
+  outline-offset: 3px;
+}
+
+.experience-description p {
+  margin: 0;
+}
+
+.experience-description ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.experience-description li + li,
+.experience-description ul + p {
+  margin-top: 0.65rem;
 }
 
 .experience-period {
@@ -465,5 +494,4 @@
 .event-card--walmart-tech::after {
   background-image: url('/walmart_tech.jpg');
 }
-
 

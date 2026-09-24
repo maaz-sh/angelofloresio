@@ -9,7 +9,7 @@ function Footer() {
           <a href="mailto:angeloflores88@gmail.com">Email</a>
           <a href="https://www.linkedin.com/in/angelo-flores-449068ba/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/atreyhazelhispanic" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="/Resume_2026.pdf" download>Résumé</a>
+          <a href="/Angelo_Flores_Software_Engineer_Resume_One_Page.pdf" download>Résumé</a>
         </div>
       </div>
     </footer>

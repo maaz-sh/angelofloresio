@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import AFMonogram from './AFMonogram'
 import './Navbar.css'
 
 function Navbar() {
@@ -12,7 +13,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-dark site-navbar">
       <div className="container">
         <NavLink className="navbar-brand" to="/" aria-label="Home" onClick={closeMenu}>
-          <img className="navbar-monogram" src="/favicon.svg" alt="AF" />
+          <AFMonogram className="navbar-monogram" decorative />
         </NavLink>
         <button
           className="navbar-toggler"

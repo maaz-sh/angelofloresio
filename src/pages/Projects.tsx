@@ -21,6 +21,49 @@ function Projects() {
       <section className="project-grid" aria-label="Project portfolio">
         <details
           className="project-card"
+          open={expandedProject === 'stagenum'}
+        >
+          <summary
+            onClick={(event) => {
+              event.preventDefault()
+              setExpandedProject(expandedProject === 'stagenum' ? null : 'stagenum')
+            }}
+          >
+            <div>
+              <p className="project-number">01</p>
+              <h2>
+                <a
+                  className="project-title-link"
+                  href="https://stagenum.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  Stagenum
+                </a>
+              </h2>
+              <p className="project-type">Milestone-based service platform prototype</p>
+            </div>
+            <span className="project-expand" aria-hidden="true">+</span>
+          </summary>
+          <div className="project-details">
+            <ul className="project-description-list">
+              <li>Built a mobile-first TypeScript/React research prototype for milestone-based service work, approvals, invoicing, simulated payments, receipts, and shared project state.</li>
+              <li>Designed PostgreSQL-backed architecture with passwordless access, private object storage, Stripe webhook authority, and transactional outbox jobs; documented decisions with ADRs and diagrams.</li>
+            </ul>
+            <div className="project-tags" aria-label="Stagenum focus areas">
+              <span>TypeScript</span>
+              <span>React</span>
+              <span>PostgreSQL</span>
+            </div>
+            <a className="project-link" href="https://stagenum.com/" target="_blank" rel="noreferrer">
+              View live site <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </details>
+
+        <details
+          className="project-card"
           open={expandedProject === 'careerflow'}
         >
           <summary
@@ -30,7 +73,7 @@ function Projects() {
             }}
           >
             <div>
-              <p className="project-number">01</p>
+              <p className="project-number">02</p>
               <h2>
                 <a
                   className="project-title-link"
@@ -48,8 +91,9 @@ function Projects() {
           </summary>
           <div className="project-details">
             <p>
-              A career-focused application with a polished sign-in and registration
-              experience, plus light and dark theme support.
+              Built a job-search application with Spring Security, JWT, JUnit, Mockito,
+              and GitHub Actions; implemented authenticated APIs, automated tests, and
+              API documentation.
             </p>
             <div className="project-tags" aria-label="CareerFlow focus areas">
               <span>Career workflow</span>
@@ -80,7 +124,7 @@ function Projects() {
             }}
           >
             <div>
-              <p className="project-number">02</p>
+              <p className="project-number">03</p>
               <h2>Chess</h2>
               <p className="project-type">Interactive chess application</p>
             </div>

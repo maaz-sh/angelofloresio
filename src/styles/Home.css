@@ -43,11 +43,78 @@
   justify-content: center;
   position: relative;
   padding: 0 1rem;
+  overflow: hidden;
 }
 
 .home-identity {
   text-align: center;
   transform: translateY(-12vh);
+}
+
+.home-intro-sequence {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  animation: intro-layer 2s ease both;
+}
+
+.home-intro-mark {
+  width: min(58vw, 29rem);
+  height: auto;
+  overflow: visible;
+  fill: #fbfcff;
+  filter:
+    drop-shadow(0 0 12px rgba(218, 226, 255, 0.72))
+    drop-shadow(0 0 42px rgba(104, 119, 183, 0.52));
+  animation: intro-mark-rise 2s cubic-bezier(0.22, 0.75, 0.26, 1) both;
+}
+
+.home-intro-mark .monogram-letter-a {
+  transform-origin: center;
+  animation: intro-a 0.88s cubic-bezier(0.18, 0.8, 0.25, 1) both;
+}
+
+.home-intro-mark .monogram-letter-f {
+  transform-origin: center;
+  animation: intro-f 0.88s cubic-bezier(0.18, 0.8, 0.25, 1) both;
+}
+
+.home-hero--introducing > :not(.home-intro-sequence) {
+  animation: home-content-reveal 2s ease both;
+}
+
+@keyframes intro-a {
+  0% { opacity: 0; transform: translateX(-42vw); }
+  62% { opacity: 1; transform: translateX(2.5%); }
+  82% { transform: translateX(-1%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes intro-f {
+  0% { opacity: 0; transform: translateX(42vw); }
+  62% { opacity: 1; transform: translateX(-2.5%); }
+  82% { transform: translateX(1%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes intro-mark-rise {
+  0%, 52% { transform: translateY(0) scale(1); }
+  72% { transform: translateY(0) scale(1.025); }
+  100% { opacity: 0; transform: translateY(-18vh) scale(0.58); }
+}
+
+@keyframes intro-layer {
+  0%, 72% { backdrop-filter: blur(18px); background: rgba(5, 5, 16, 0.12); }
+  100% { backdrop-filter: blur(0); background: transparent; }
+}
+
+@keyframes home-content-reveal {
+  0%, 62% { opacity: 0; filter: blur(12px); }
+  100% { opacity: 1; filter: blur(0); }
 }
 
 .home-overlay {
@@ -118,4 +185,20 @@
 .home-about-link:hover {
   color: #ffffff;
   text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-intro-sequence {
+    display: none;
+  }
+
+  .home-hero--introducing > :not(.home-intro-sequence) {
+    animation: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .home-intro-mark {
+    width: min(82vw, 23rem);
+  }
 }

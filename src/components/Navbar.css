@@ -16,8 +16,11 @@
 }
 
 .navbar-monogram {
-  width: 1.8rem;
+  width: 2.25rem;
   height: 1.8rem;
+  overflow: visible;
+  fill: #f4f6ff;
+  filter: drop-shadow(0 0 6px rgba(152, 170, 255, 0.42));
 }
 
 .site-navbar .nav-link {

@@ -89,7 +89,16 @@ function About() {
             <p className="experience-period">2019 - 2022</p>
             <h3>Software Engineer</h3>
             <p className="experience-company">Nordstrom (HQ)</p>
-            <p>Built Java Spring Boot microservices for search, browsing, navigation, and routing; contributed React work and REST integrations across AWS, EKS, Fargate, Kafka, and GitLab CI/CD.</p>
+            <div className="experience-description" tabIndex={0} aria-label="Software Engineer experience details">
+              <ul>
+                <li>Built Java/Spring Boot and C#/.NET RESTful API microservices for navigation, search, and product discovery using Maven, Gradle, and Redis caching; led Apache Kafka onboarding for schema-managed events.</li>
+                <li>Worked with Apigee Edge and AWS API Gateway, OAuth2, idempotency, and rate limiting; tested and documented APIs using Postman and OpenAPI/Swagger.</li>
+                <li>Used Git/Bitbucket, GitLab CI, and GoCD for CI/CD pipeline automation; participated in Agile/Scrum sprint planning and used Jira for documentation and work tracking.</li>
+                <li>Deployed and supported AWS EC2, ECS, EKS, RDS, S3, Lambda, and Elastic Beanstalk; worked with Docker, Kubernetes, CloudFormation, Linux, and Tomcat.</li>
+                <li>Served as an on-call engineer; monitored availability and performance with Datadog and AWS CloudWatch and used Splunk alerts and logging to resolve incidents.</li>
+              </ul>
+              <p>Contributed front-end work during a team rotation. Built a Python/protobuf image-upload endpoint and computer-vision prototypes using NumPy, pandas, scikit-learn, PyTorch, TensorFlow, and GCP. Delivered Cassandra product data through service endpoints and supported Amazon SQS routing workflows.</p>
+            </div>
           </article>
           <article className="experience-card">
             <p className="experience-period">2018</p>
@@ -101,7 +110,9 @@ function About() {
             <p className="experience-period">2025 - 2026</p>
             <h3>Digital Coach</h3>
             <p className="experience-company">Walmart</p>
-            <p>Used web and mobile-app metrics to grow peak daily volume from $35K to $60K, while supporting digital fulfillment, Spark Driver operations, and store-performance reporting.</p>
+            <div className="experience-description" tabIndex={0} aria-label="Digital Coach experience details">
+              <p>Led multichannel Walmart.com and mobile-app fulfillment operations for 76 associates through three team leads; increased peak-day digital sales from ~$35K to $60K (71%) while supporting 38% year-over-year growth. Used dashboards and KPIs for availability, accuracy, timeliness, and first-time pick rate to improve workflows and training.</p>
+            </div>
           </article>
         </div>
       </section>
